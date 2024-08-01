@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="Product-Details m-5 bg-light rounded-5 overflow-hidden shadow-lg">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="w-50 p-5 ">
+        <img [src]="product?.image" alt="" class="w-100 rounded-5">
+      </div>
+      <div class="w-50">
+        <div class="header d-flex justify-content-between align-items-center">
+          <h1>{{product?.title}}</h1>
+          <p class="text-secondary me-5 fs-4">{{product?.price}}$</p>
+        </div>
+        <div class="category">
+          <p> category : {{product?.category}}</p>
+        </div>
+        <div class="amount">
+          <p> in Stock : {{product?.rating?.count}}</p>
+        </div>
+        <div class="description">
+          <h5>description</h5>
+          <p class="overflow-auto"> {{product?.description}}</p>
+        </div>
+        <div class="footer d-flex justify-content-between align-items-center">
+          <div class="rating">
+            <p class="fs-4">rating: {{product?.rating?.rate}}</p>
+          </div>
+          <div class="cart-wish d-flex">
+            <button class="btn btn-success me-4">Add to cart</button>
+            <button class="btn btn-dark me-5">Buy now</button>
+            <button class="btn btn-secondary mx-5"> <i class="fa-regular fa-heart"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="bg-info  p-5 m-2 rounded-5">
+  <div class="text  text-center">
+    <h1 class="">Product Page</h1>
+  </div>
+</div>
+<div class="container pt-5">
+  <div class="header mb-5">
+    <span class="fs-5 trending">Top Jewelry</span>
+    <div class="cards d-grid mt-5">
+      <div class="row gy-4">
+        @for (product of filterProduct; track $index) {
+
+        <div class="col-3">
+          <app-product [product]="product"></app-product>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+  <div class="contant mt-5">
+    <div class="my-5 ">
+      <input type="text" class="form-control border-2 border-danger mx-auto w-25" [(ngModel)]="searchTerm"
+        (ngModelChange)="filterProductsByName()">
+    </div>
+    <div class="my-5 ">
+      <ul class="list-group">
+        @for (category of uniqueCategories; track $index ) {
+        <li class="list-group-item" (click)="getProductBycategory(category)">{{category}}</li>
+        }
+      </ul>
+    </div>
+    <div class="header mb-5">
+      <span class="fs-5 trending">All Product</span>
+      @defer (on timer(1s)) {
+      <div class="cards d-grid  pt-5">
+        <div class="row gy-4">
+          @if(products.length === 0){ <div class="mx-auto">
+            <h1 class="">no product found</h1>
+          </div>
+          }
+          @for (product of products; track $index) {
+
+          <div class="col-3">
+            <app-product [product]="product"></app-product>
+          </div>
+          }
+          <div class="text-center">
+            <button class="btn btn-danger w-25" (click)="moreProduct()">More product</button>
+          </div>
+
+        </div>
+      </div>
+      }
+    </div>
+  </div>
