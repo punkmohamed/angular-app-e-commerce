@@ -9,7 +9,6 @@
     <div class="cards d-grid mt-5">
       <div class="row gy-4">
         @for (product of filterProduct; track $index) {
-
         <div class="col-3">
           <app-product [product]="product"></app-product>
         </div>
@@ -20,7 +19,7 @@
   <div class="contant mt-5">
     <div class="my-5 ">
       <input type="text" class="form-control border-2 border-danger mx-auto w-25" [(ngModel)]="searchTerm"
-        (ngModelChange)="filterProductsByName()">
+        (input)="filterProductsByName()">
     </div>
     <div class="my-5 ">
       <ul class="list-group">
@@ -44,10 +43,11 @@
             <app-product [product]="product"></app-product>
           </div>
           }
+          @if(hideButton){
           <div class="text-center">
             <button class="btn btn-danger w-25" (click)="moreProduct()">More product</button>
           </div>
-
+          }
         </div>
       </div>
       }

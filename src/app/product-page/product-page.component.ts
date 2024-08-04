@@ -18,6 +18,7 @@ export class ProductPageComponent {
   productNow = 4
   currentProduct = 1
   searchTerm = ''
+  hideButton: boolean = false
   uniqueCategories: string[] = [];
   constructor(public router: Router, public _productsService: ProductsService) {
     this.getMoreProduct()
@@ -31,10 +32,9 @@ export class ProductPageComponent {
   getMoreProduct() {
     this._productsService.getProducts().subscribe({
       next: (res) => {
+        this.categoryProduct = res;
         this.filterProduct = res.filter(product => product.category === 'jewelery');
         this.products = res.slice(0, this.productNow * this.currentProduct);
-        this.categoryProduct = res;
-
       },
       error(err) {
         console.log(err);

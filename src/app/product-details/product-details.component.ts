@@ -26,4 +26,9 @@ export class ProductDetailsComponent {
       }
     })
   }
+  // this.route.queryParams.subscribe(params => {
+  //   this.productid
+  //   params['id']
+  // });
+
 }
